@@ -1,3 +1,4 @@
+# copyright ASL97, wololo version 0.1
 import urllib
 import time, textwrap
 import HP as HTMLParser

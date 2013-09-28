@@ -1,3 +1,4 @@
+# copyright ASL97, menu version 0.1.2
 import os
 import time
 import psp2d

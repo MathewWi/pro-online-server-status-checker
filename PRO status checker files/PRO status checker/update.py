@@ -1,3 +1,4 @@
+# copyright ASL97, update version 0.2.3
 import os
 import urllib
 import pspnet
