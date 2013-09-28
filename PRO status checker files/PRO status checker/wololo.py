@@ -97,6 +97,10 @@ def run(font, screen, image, psp2d):
       if pad.cross:
           x = False
 
+  screen.clear(psp2d.Color(0,0,0))
+  font.drawText(screen, 0, 0, 'Loading...')
+  screen.swap()
+
   global connected
   connected = False
 

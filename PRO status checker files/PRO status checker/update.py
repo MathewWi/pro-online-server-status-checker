@@ -19,6 +19,10 @@ def run(font, screen, image, psp2d):
       pad = psp2d.Controller()
       if pad.cross:
           x = False
+  
+  screen.clear(psp2d.Color(0,0,0))
+  font.drawText(screen, 0, 0, 'Loading...')
+  screen.swap()
 
   path = os.getcwd()
   data1 = urllib.urlopen("http://pro-online-server-status-checker.googlecode.com/git/PRO%20status%20checker%20files/PRO%20status%20checker/prossc.py").read()
