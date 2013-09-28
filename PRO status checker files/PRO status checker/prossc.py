@@ -164,6 +164,10 @@ def run(font, screen, image, psp2d):
     else:
       screen.clear(psp2d.Color(0,0,0))
       font.drawText(screen, 0, 0, 'Connected')
+      image = psp2d.Image("prossc.png")  
+      screen.blit(image, dx=120, dy=102, dw=242, blend=True)
+      font.drawText(screen, 350, 250, "Press X to continue")
+      image = psp2d.Image(480, 272)
     screen.swap()
 
 
@@ -175,16 +179,10 @@ def run(font, screen, image, psp2d):
       nid = l.split(":",1)[1]
       namelist[gid] = nid
 
-  pspnet.connectToAPCTL(1, cb)
-
-  image = psp2d.Image("prossc.png")  
-
-  screen.blit(image, dx=120, dy=102, dw=242, blend=True)
-  font.drawText(screen, 350, 250, "Press X to continue")
-  screen.swap()
-  image = psp2d.Image(480, 272)
-  x = True
-  while x == True:
+  if pspnet.getAPCTLState() != 4:
+    pspnet.connectToAPCTL(1, cb)
+    x = True
+    while x == True:
       pad = psp2d.Controller()
       if pad.cross:
           x = False
@@ -228,4 +226,3 @@ def run(font, screen, image, psp2d):
             else:
               drawplayerdata(itemlist[n],datalist["game"][itemlist[n]])
               time.sleep(0.5)
-  pspnet.disconnectAPCTL()

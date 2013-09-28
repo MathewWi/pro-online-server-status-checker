@@ -86,17 +86,16 @@ def run(font, screen, image, psp2d):
     else:
       screen.clear(psp2d.Color(0,0,0))
       font.drawText(screen, 0, 0, 'Connected')
+      font.drawText(screen, 350, 250, "Press X to continue")
     screen.swap()
 
-  pspnet.connectToAPCTL(1, cb)
-
-  font.drawText(screen, 350, 250, "Press X to continue")
-  screen.swap()
-  x = True
-  while x == True:
+  if pspnet.getAPCTLState() != 4:
+    pspnet.connectToAPCTL(1, cb)
+    x = True
+    while x == True:
       pad = psp2d.Controller()
       if pad.cross:
-	  x = False
+          x = False
 
   global connected
   connected = False
@@ -128,5 +127,3 @@ def run(font, screen, image, psp2d):
         time.sleep(0.5)
       if pad.circle:
         x = False
-
-  pspnet.disconnectAPCTL()

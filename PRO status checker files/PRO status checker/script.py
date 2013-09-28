@@ -95,4 +95,4 @@ while True:
     start_menu(t, mupdate, mwololo)
     time.sleep(0.5)
   if pad.circle:
-    x = False
+    break

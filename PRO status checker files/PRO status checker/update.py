@@ -10,13 +10,12 @@ def run(font, screen, image, psp2d):
     else:
       screen.clear(psp2d.Color(0,0,0))
       font.drawText(screen, 0, 0, 'Connected')
+      font.drawText(screen, 350, 250, "Press X to continue")
     screen.swap()
-
-  pspnet.connectToAPCTL(1, cb)
-  font.drawText(screen, 350, 250, "Press X to continue")
-  screen.swap()
-  x = True
-  while x == True:
+  if pspnet.getAPCTLState() != 4:
+    pspnet.connectToAPCTL(1, cb)
+    x = True
+    while x == True:
       pad = psp2d.Controller()
       if pad.cross:
           x = False
@@ -32,26 +31,18 @@ def run(font, screen, image, psp2d):
   data4 = f.read()
   f.close()
   if data1 != data2 and data3 != data4:
-    font.drawText(screen, 0, 0, "updating prossc.py and wololo.py...")
-    screen.swap()
     open(path+"/prossc.py","w").write(data1)
     open(path+"/wololo.py","w").write(data3)
-    screen.clear(psp2d.Color(0,0,0))
     font.drawText(screen, 0, 0, "done updating prossc.py and wololo.py")
-    screen.swap()
   elif data1 != data2:
     open(path+"/prossc.py","w").write(data1)
-    screen.clear(psp2d.Color(0,0,0))
     font.drawText(screen, 0, 0, "done updating prossc.py")
-    screen.swap()
   elif data3 != data4:
     open(path+"/wololo.py","w").write(data3)
-    screen.clear(psp2d.Color(0,0,0))
     font.drawText(screen, 0, 0, "done updating wololo.py")
-    screen.swap()
   else:
-    font.drawText(screen, 0, 0, "prossc is already the latest version")
-    screen.swap()
+    font.drawText(screen, 0, 0, "prossc and wololo(add-on) is already the latest version")
+
 
   font.drawText(screen, 272, 250, "Press Circle to exit the updater")
   screen.swap()
@@ -60,5 +51,3 @@ def run(font, screen, image, psp2d):
     pad = psp2d.Controller()
     if pad.circle:
       x = False
-
-  pspnet.disconnectAPCTL()
