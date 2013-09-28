@@ -103,7 +103,7 @@ def run(font, screen, image, psp2d):
             return
 
 
-  def drawdata(datalist):
+  def drawdata(datalist, n,m):
     image.clear(psp2d.Color(0,0,0))
     screen.blit(image)
     screen.swap()
@@ -117,6 +117,7 @@ def run(font, screen, image, psp2d):
       t += 20
 
     font.drawText(image, 420, 0, time.strftime("%H:%M:%S", time.localtime()))
+    font.drawText(image, 440, 170, "%d/%d" % (n,m))
     font.drawText(image, 350, 190, "Press Circle to exit")
     font.drawText(image, 310, 210, "Press Triangle to update")
     font.drawText(image, 300, 230, "Press Right for Next Game")
@@ -125,7 +126,7 @@ def run(font, screen, image, psp2d):
     screen.swap()
 
 
-  def drawplayerdata(name,playerlist):
+  def drawplayerdata(name,playerlist,n,m):
     image.clear(psp2d.Color(0,0,0))
     screen.blit(image)
     screen.swap()
@@ -149,6 +150,7 @@ def run(font, screen, image, psp2d):
         t += 20
 
     font.drawText(image, 420, 0, time.strftime("%H:%M:%S", time.localtime()))
+    font.drawText(image, 440, 170, "%d/%d" % (n,m))
     font.drawText(image, 350, 190, "Press Circle to exit")
     font.drawText(image, 310, 210, "Press Triangle to update")
     font.drawText(image, 300, 230, "Press Right for Next Game")
@@ -202,31 +204,31 @@ def run(font, screen, image, psp2d):
   if connected == True:
     screen.clear(psp2d.Color(0,0,0))
     datalist, itemlist = makedatalist(bdata)
-    drawdata(datalist)
     n = -1
+    drawdata(datalist,n+1,len(itemlist))
     while True:
         pad = psp2d.Controller()
         if pad.triangle:
           bdata = getdata()
           datalist, itemlist = makedatalist(bdata)
           if n == -1:
-            drawdata(datalist)
+            drawdata(datalist,n+1,len(itemlist))
           else:
-            drawplayerdata(itemlist[n],datalist["game"][itemlist[n]])
+            drawplayerdata(itemlist[n],datalist["game"][itemlist[n]],n+1,len(itemlist))
           time.sleep(2)
         if pad.circle:
           break
         if pad.right:
-          if n < (len(itemlist) - 1):
+          if n != (len(itemlist) - 1):
             n += 1
-            drawplayerdata(itemlist[n],datalist["game"][itemlist[n]])
+            drawplayerdata(itemlist[n],datalist["game"][itemlist[n]],n+1,len(itemlist))
             time.sleep(0.5)
         if pad.left:
           if n != -1:
             n -= 1
             if n == -1:
-              drawdata(datalist)
+              drawdata(datalist,n+1,len(itemlist))
               time.sleep(0.5)
             else:
-              drawplayerdata(itemlist[n],datalist["game"][itemlist[n]])
+              drawplayerdata(itemlist[n],datalist["game"][itemlist[n]],n+1,len(itemlist))
               time.sleep(0.5)

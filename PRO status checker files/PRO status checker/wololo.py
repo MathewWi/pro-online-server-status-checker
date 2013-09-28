@@ -57,7 +57,7 @@ def run(font, screen, image, psp2d):
           if pad.circle:
             return
 
-  def drawdata(data):
+  def drawdata(data,n):
     image.clear(psp2d.Color(0,0,0))
     screen.blit(image)
     screen.swap()
@@ -73,6 +73,7 @@ def run(font, screen, image, psp2d):
       font.drawText(image, 0, t, l)
       t += 20
     font.drawText(image, 0, 250, time.strftime("%H:%M:%S", time.localtime()))
+    font.drawText(image, 440, 190, "%d/14" % n)
     font.drawText(image, 350, 210, "Press Circle to exit")
     font.drawText(image, 305, 230, "Press Right for older post")
     font.drawText(image, 305, 250, "Press Left for newer post")
@@ -110,20 +111,19 @@ def run(font, screen, image, psp2d):
   if connected == True:
     screen.clear(psp2d.Color(0,0,0))
     n = 0
-    drawdata(datalist[n])   
+    drawdata(datalist[n],n)   
     x = True
     while x == True:
       pad = psp2d.Controller()
       if pad.right:
         if n != 14:
           n += 1
-          print(n)
-          drawdata(datalist[n])
+          drawdata(datalist[n],n)
           time.sleep(0.5)
       if pad.left:
         if n != 0:
           n -= 1
-          drawdata(datalist[n])
+          drawdata(datalist[n],n)
           time.sleep(0.5)
       if pad.triangle:
         bdata = getdata()
