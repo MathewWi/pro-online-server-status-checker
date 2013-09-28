@@ -70,12 +70,10 @@ def start_menu(t, modt):
   font.drawText(screen, 303, 250, "Press down to select down")
   screen.swap()
 
-def updt():
-  modt = sorted([t for (t,l) in modr.items() if l == True])
-  t = 0
-  q = len(modt)-1
-  start_menu(t, modt)
-updt()
+modt = sorted([t for (t,l) in modr.items() if l == True])
+t = 0
+q = len(modt)-1
+start_menu(t, modt)
 while True:
   pad = psp2d.Controller()
   if pad.up:
@@ -100,13 +98,19 @@ while True:
       elif p:
         import prossc as main
         modr["prossc"] = True
-        updt()
+        modt = sorted([t for (t,l) in modr.items() if l == True])
+        t = 0
+        q = len(modt)-1
+        start_menu(t, modt)
       if w and modr["wololo"] == True:
         reload("wololo")
       elif w:
         import wololo
         modr["wololo"] = True
-        updt()
+        modt = sorted([t for (t,l) in modr.items() if l == True])
+        t = 0
+        q = len(modt)-1
+        start_menu(t, modt)
     if t == modt.index("wololo"):
       screen.clear(psp2d.Color(0,0,0))
       wololo.run(font, screen, image, psp2d)
