@@ -18,6 +18,4 @@ or go to the irc (at freenode on channel #procfw) and hope i am there: http://fo
 
 only the script will be updated unless stated somewhere, so, in the future,
 
-you can just download the script, bare minimun zip if you already downloaded the all in one
-or
-use the inbuild updater
+you can just download the script, bare minimun zip if you already downloaded the all in one and/or use the inbuild updater to install the new version
