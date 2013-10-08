@@ -1,6 +1,6 @@
 Copyright © 2013   ASL97(asl97@outlook.com)
 PRO server status check
-readme Version 0.3.7
+readme Version 0.3.8
 
 the anon.txt is to replace names for people with non ascii names, edit if you want
 
