@@ -213,20 +213,20 @@ def run(font, screen, image, psp2d):
             drawdata(datalist,n+1,len(itemlist))
           else:
             drawplayerdata(itemlist[n],datalist["game"][itemlist[n]],n+1,len(itemlist))
-          time.sleep(2)
+          time.sleep(1)
         if pad.circle:
           break
         if pad.right:
           if n != (len(itemlist) - 1):
             n += 1
             drawplayerdata(itemlist[n],datalist["game"][itemlist[n]],n+1,len(itemlist))
-            time.sleep(0.5)
+            time.sleep(0.3)
         if pad.left:
           if n != -1:
             n -= 1
             if n == -1:
               drawdata(datalist,n+1,len(itemlist))
-              time.sleep(0.5)
+              time.sleep(0.3)
             else:
               drawplayerdata(itemlist[n],datalist["game"][itemlist[n]],n+1,len(itemlist))
-              time.sleep(0.5)
+              time.sleep(0.3)

@@ -1,4 +1,4 @@
-# copyright ASL97, wololo version 0.1
+# copyright ASL97, wololo version 0.1.1
 import urllib
 import time, textwrap
 import HP as HTMLParser
@@ -124,15 +124,15 @@ def run(font, screen, image, psp2d):
         if n != 14:
           n += 1
           drawdata(datalist[n],n)
-          time.sleep(0.5)
+          time.sleep(0.3)
       if pad.left:
         if n != 0:
           n -= 1
           drawdata(datalist[n],n)
-          time.sleep(0.5)
+          time.sleep(0.3)
       if pad.triangle:
         bdata = getdata()
         drawdata(bdata)
-        time.sleep(0.5)
+        time.sleep(1)
       if pad.circle:
         x = False

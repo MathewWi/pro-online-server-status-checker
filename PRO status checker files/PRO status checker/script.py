@@ -1,4 +1,4 @@
-# copyright ASL97, menu version 0.1.2
+# copyright ASL97, menu version 0.1.3
 import os
 import time
 import psp2d
@@ -80,12 +80,12 @@ while True:
     if t != 0:
       t-=1
       start_menu(t, modt)
-      time.sleep(0.5)
+      time.sleep(0.3)
   if pad.down:
     if t != q:
       t+=1
       start_menu(t, modt)
-      time.sleep(0.5)
+      time.sleep(0.3)
   if pad.cross:
     if t == modt.index("prossc"):
       screen.clear(psp2d.Color(0,0,0))
@@ -115,6 +115,6 @@ while True:
       screen.clear(psp2d.Color(0,0,0))
       wololo.run(font, screen, image, psp2d)
     start_menu(t, modt)
-    time.sleep(0.5)
+    time.sleep(0.3)
   if pad.circle:
     break
