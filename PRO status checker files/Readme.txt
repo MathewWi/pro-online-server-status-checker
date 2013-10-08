@@ -1,6 +1,6 @@
 Copyright © 2013   ASL97(asl97@outlook.com)
 PRO server status check
-readme Version 0.3.5
+readme Version 0.3.7
 
 the anon.txt is to replace names for people with non ascii names, edit if you want
 
@@ -18,4 +18,4 @@ or go to the irc (at freenode on channel #procfw) and hope i am there: http://fo
 
 only the script will be updated unless stated somewhere, so, in the future,
 
-you can just download the script, bare minimun zip if you already downloaded the all in one and/or use the inbuild updater to install the new version
+you can just download the script, bare minimun zip if you already downloaded the all in one and/or use the inbuilt updater to install the new version

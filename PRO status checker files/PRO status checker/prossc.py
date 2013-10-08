@@ -1,4 +1,4 @@
-# copyright ASL97, prossc version 0.3.5
+# copyright ASL97, prossc version 0.3.6
 import urllib
 import time, base64, os
 import pspnet
@@ -79,7 +79,6 @@ def run(font, screen, image, psp2d):
     except:
       x = True
       times = 1
-      Quit = False
       while x == True:
         screen.clear(psp2d.Color(0,0,0))
         font.drawText(screen, 0, 0, "fail to connect (%s), retry?" % times)
@@ -99,7 +98,6 @@ def run(font, screen, image, psp2d):
             except:
               break
           if pad.circle:
-            Quit = True
             return
 
 

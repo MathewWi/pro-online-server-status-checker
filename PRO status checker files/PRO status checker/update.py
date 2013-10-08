@@ -11,7 +11,11 @@ def run(font, screen, image, psp2d):
     else:
       screen.clear(psp2d.Color(0,0,0))
       font.drawText(screen, 0, 0, 'Connected')
+      image = psp2d.Image("prossc.png")  
+      screen.blit(image, dx=120, dy=102, dw=242, blend=True)
       font.drawText(screen, 350, 250, "Press X to continue")
+      image = psp2d.Image(480, 272)
+      image.clear(psp2d.Color(0,0,0))
     screen.swap()
   if pspnet.getAPCTLState() != 4:
     pspnet.connectToAPCTL(1, cb)
