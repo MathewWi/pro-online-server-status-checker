@@ -94,7 +94,7 @@ while True:
       screen.clear(psp2d.Color(0,0,0))
       p,w = update.run(font, screen, image, psp2d)
       if p and modr["prossc"] == True:
-        reload("prossc")
+        reload(prossc)
       elif p:
         import prossc as main
         modr["prossc"] = True
@@ -103,7 +103,7 @@ while True:
         q = len(modt)-1
         start_menu(t, modt)
       if w and modr["wololo"] == True:
-        reload("wololo")
+        reload(wololo)
       elif w:
         import wololo
         modr["wololo"] = True
