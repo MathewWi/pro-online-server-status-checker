@@ -1,7 +1,10 @@
 # copyright ASL97, wololo version 0.1.2
 import urllib
 import time, textwrap
-import HP as HTMLParser
+try:
+  import HP as HTMLParser
+except:
+  import HTMLParser
 import pspnet
 
 def run(font, screen, image, psp2d):
@@ -80,32 +83,6 @@ def run(font, screen, image, psp2d):
     font.drawText(image, 305, 250, "Press Left for newer post")
     screen.blit(image)
     screen.swap()
-
-  def cb(s):
-    if s >= 0:
-      screen.clear(psp2d.Color(0,0,0))
-      font.drawText(screen, 0, 0, 'State: %d/4' % s)
-    else:
-      screen.clear(psp2d.Color(0,0,0))
-      font.drawText(screen, 0, 0, 'Connected')
-      image = psp2d.Image("prossc.png")  
-      screen.blit(image, dx=120, dy=102, dw=242, blend=True)
-      font.drawText(screen, 350, 250, "Press X to continue")
-      image = psp2d.Image(480, 272)
-      image.clear(psp2d.Color(0,0,0))
-    screen.swap()
-
-  if pspnet.getAPCTLState() != 4:
-    pspnet.connectToAPCTL(1, cb)
-    x = True
-    while x == True:
-      pad = psp2d.Controller()
-      if pad.cross:
-          x = False
-
-  screen.clear(psp2d.Color(0,0,0))
-  font.drawText(screen, 0, 0, 'Loading...')
-  screen.swap()
 
   global connected
   connected = False
