@@ -1,6 +1,5 @@
 # copyright ASL97, menu version 0.1.5
-import os
-import time
+import os, time, base64
 import psp2d, pspnet
 def make(path, font, icon, anon, gameid):
   if font == False:
