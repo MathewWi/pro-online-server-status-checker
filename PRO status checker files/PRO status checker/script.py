@@ -1,4 +1,4 @@
-# copyright ASL97, menu version 0.1.4
+# copyright ASL97, menu version 0.1.5
 import os
 import time
 import psp2d, pspnet

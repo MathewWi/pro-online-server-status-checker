@@ -1,4 +1,4 @@
-# copyright ASL97, update version 0.2.4
+# copyright ASL97, update version 0.2.5
 import os
 import urllib
 import pspnet

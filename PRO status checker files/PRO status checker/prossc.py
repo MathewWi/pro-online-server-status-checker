@@ -1,4 +1,4 @@
-# copyright ASL97, prossc version 0.3.8
+# copyright ASL97, prossc version 0.3.9
 import urllib
 import time, base64, os
 import pspnet

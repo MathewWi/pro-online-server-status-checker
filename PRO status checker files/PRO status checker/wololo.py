@@ -1,4 +1,4 @@
-# copyright ASL97, wololo version 0.1.2
+# copyright ASL97, wololo version 0.1.3
 import urllib
 import time, textwrap
 try:
